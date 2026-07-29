@@ -201,6 +201,6 @@ namespace ImGui
 // 启用UTF8完整支持，加载中文字体必备
 #define IMGUI_USE_UTF8
 // 如果你使用FreeType渲染字体（更清晰）
-//#define IMGUI_ENABLE_FREETYPE
+#define IMGUI_ENABLE_FREETYPE
 
 #endif

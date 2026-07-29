@@ -272,6 +272,30 @@ imgui/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/imgui_widgets.cpp.s
 .PHONY : imgui/imgui_widgets.cpp.s
 
+imgui/misc/freetype/imgui_freetype.obj: imgui/misc/freetype/imgui_freetype.cpp.obj
+.PHONY : imgui/misc/freetype/imgui_freetype.obj
+
+# target to build an object file
+imgui/misc/freetype/imgui_freetype.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/misc/freetype/imgui_freetype.cpp.obj
+.PHONY : imgui/misc/freetype/imgui_freetype.cpp.obj
+
+imgui/misc/freetype/imgui_freetype.i: imgui/misc/freetype/imgui_freetype.cpp.i
+.PHONY : imgui/misc/freetype/imgui_freetype.i
+
+# target to preprocess a source file
+imgui/misc/freetype/imgui_freetype.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/misc/freetype/imgui_freetype.cpp.i
+.PHONY : imgui/misc/freetype/imgui_freetype.cpp.i
+
+imgui/misc/freetype/imgui_freetype.s: imgui/misc/freetype/imgui_freetype.cpp.s
+.PHONY : imgui/misc/freetype/imgui_freetype.s
+
+# target to generate assembly for a file
+imgui/misc/freetype/imgui_freetype.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/misc/freetype/imgui_freetype.cpp.s
+.PHONY : imgui/misc/freetype/imgui_freetype.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -323,6 +347,9 @@ help:
 	@echo ... imgui/imgui_widgets.obj
 	@echo ... imgui/imgui_widgets.i
 	@echo ... imgui/imgui_widgets.s
+	@echo ... imgui/misc/freetype/imgui_freetype.obj
+	@echo ... imgui/misc/freetype/imgui_freetype.i
+	@echo ... imgui/misc/freetype/imgui_freetype.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

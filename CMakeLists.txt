@@ -30,7 +30,10 @@ file(GLOB IMGUI_BACKEND
     ${PROJECT_SOURCE_DIR}/imgui/backends/imgui_impl_sdl3.cpp
     ${PROJECT_SOURCE_DIR}/imgui/backends/imgui_impl_sdlrenderer3.cpp
 )
-set(ALL_IMGUI ${IMGUI_CORE} ${IMGUI_BACKEND})
+file(GLOB IMGUI_MISC
+    ${PROJECT_SOURCE_DIR}/imgui/misc/freetype/imgui_freetype.cpp
+)
+set(ALL_IMGUI ${IMGUI_CORE} ${IMGUI_BACKEND} ${IMGUI_MISC})
 set(SRC_LIST main.cpp ${ALL_IMGUI})
 
 # 编译程序
