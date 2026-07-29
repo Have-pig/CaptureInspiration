@@ -1,4 +1,4 @@
-#include "imconfig.h"
+#include "imgui/imconfig.h"
 #include "imgui/imgui.h"
 #include <SDL3/SDL.h>
 
