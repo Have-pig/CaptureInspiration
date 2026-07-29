@@ -1,5 +1,5 @@
-#include <imconfig.h>
-#include <imgui/imgui.h>
+#include "imconfig.h"
+#include "imgui/imgui.h"
 #include <SDL3/SDL.h>
 
 int main()
