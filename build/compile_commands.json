@@ -1,0 +1,44 @@
+[
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=c++17 -fexec-charset=GBK -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\main.cpp.obj -c E:\\cpp\\CaptureInspiration\\main.cpp",
+  "file": "E:/cpp/CaptureInspiration/main.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/main.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=c++17 -fexec-charset=GBK -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\imgui\\imgui.cpp.obj -c E:\\cpp\\CaptureInspiration\\imgui\\imgui.cpp",
+  "file": "E:/cpp/CaptureInspiration/imgui/imgui.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/imgui/imgui.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=c++17 -fexec-charset=GBK -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\imgui\\imgui_draw.cpp.obj -c E:\\cpp\\CaptureInspiration\\imgui\\imgui_draw.cpp",
+  "file": "E:/cpp/CaptureInspiration/imgui/imgui_draw.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/imgui/imgui_draw.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=c++17 -fexec-charset=GBK -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\imgui\\imgui_tables.cpp.obj -c E:\\cpp\\CaptureInspiration\\imgui\\imgui_tables.cpp",
+  "file": "E:/cpp/CaptureInspiration/imgui/imgui_tables.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/imgui/imgui_tables.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=c++17 -fexec-charset=GBK -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\imgui\\imgui_widgets.cpp.obj -c E:\\cpp\\CaptureInspiration\\imgui\\imgui_widgets.cpp",
+  "file": "E:/cpp/CaptureInspiration/imgui/imgui_widgets.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/imgui/imgui_widgets.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=c++17 -fexec-charset=GBK -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\imgui\\backends\\imgui_impl_sdl3.cpp.obj -c E:\\cpp\\CaptureInspiration\\imgui\\backends\\imgui_impl_sdl3.cpp",
+  "file": "E:/cpp/CaptureInspiration/imgui/backends/imgui_impl_sdl3.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/imgui/backends/imgui_impl_sdl3.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=c++17 -fexec-charset=GBK -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\imgui\\backends\\imgui_impl_sdlrenderer3.cpp.obj -c E:\\cpp\\CaptureInspiration\\imgui\\backends\\imgui_impl_sdlrenderer3.cpp",
+  "file": "E:/cpp/CaptureInspiration/imgui/backends/imgui_impl_sdlrenderer3.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/imgui/backends/imgui_impl_sdlrenderer3.cpp.obj"
+}
+]

@@ -265,7 +265,7 @@ CaptureInspiration_IS_TOP_LEVEL:STATIC=ON
 CaptureInspiration_SOURCE_DIR:STATIC=E:/cpp/CaptureInspiration
 
 //The directory containing a CMake configuration file for SDL3.
-SDL3_DIR:PATH=SDL3_DIR-NOTFOUND
+SDL3_DIR:PATH=F:/mingw64/x86_64-w64-mingw32/lib/cmake/SDL3
 
 
 ########################
