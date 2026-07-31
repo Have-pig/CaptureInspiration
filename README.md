@@ -4,7 +4,7 @@
 YOU CAN USE IT TO MANAGER THE SUDDEN INSPIRATIONS
 
 ## Something important
-The source code is based on SDL3,but it does not include SDL3.\n
+The source code is based on SDL3,but it does not include SDL3.<br>
 So if you want to modify codes and compile them,remember include SDL3.
 
 - ENVIRONMENT

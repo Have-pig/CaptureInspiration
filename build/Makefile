@@ -272,6 +272,30 @@ imgui/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/imgui_widgets.cpp.s
 .PHONY : imgui/imgui_widgets.cpp.s
 
+imgui/misc/cpp/imgui_stdlib.obj: imgui/misc/cpp/imgui_stdlib.cpp.obj
+.PHONY : imgui/misc/cpp/imgui_stdlib.obj
+
+# target to build an object file
+imgui/misc/cpp/imgui_stdlib.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/misc/cpp/imgui_stdlib.cpp.obj
+.PHONY : imgui/misc/cpp/imgui_stdlib.cpp.obj
+
+imgui/misc/cpp/imgui_stdlib.i: imgui/misc/cpp/imgui_stdlib.cpp.i
+.PHONY : imgui/misc/cpp/imgui_stdlib.i
+
+# target to preprocess a source file
+imgui/misc/cpp/imgui_stdlib.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/misc/cpp/imgui_stdlib.cpp.i
+.PHONY : imgui/misc/cpp/imgui_stdlib.cpp.i
+
+imgui/misc/cpp/imgui_stdlib.s: imgui/misc/cpp/imgui_stdlib.cpp.s
+.PHONY : imgui/misc/cpp/imgui_stdlib.s
+
+# target to generate assembly for a file
+imgui/misc/cpp/imgui_stdlib.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/misc/cpp/imgui_stdlib.cpp.s
+.PHONY : imgui/misc/cpp/imgui_stdlib.cpp.s
+
 imgui/misc/freetype/imgui_freetype.obj: imgui/misc/freetype/imgui_freetype.cpp.obj
 .PHONY : imgui/misc/freetype/imgui_freetype.obj
 
@@ -347,6 +371,9 @@ help:
 	@echo ... imgui/imgui_widgets.obj
 	@echo ... imgui/imgui_widgets.i
 	@echo ... imgui/imgui_widgets.s
+	@echo ... imgui/misc/cpp/imgui_stdlib.obj
+	@echo ... imgui/misc/cpp/imgui_stdlib.i
+	@echo ... imgui/misc/cpp/imgui_stdlib.s
 	@echo ... imgui/misc/freetype/imgui_freetype.obj
 	@echo ... imgui/misc/freetype/imgui_freetype.i
 	@echo ... imgui/misc/freetype/imgui_freetype.s
