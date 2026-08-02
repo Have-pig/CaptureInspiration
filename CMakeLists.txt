@@ -17,6 +17,8 @@ list(APPEND CMAKE_PREFIX_PATH ${SDL_PREFIX})
 # ========== 源文件列表 ==========
 set(SOURCES
     "main.cpp"
+    "set_main_gui.cpp"
+    "control_events.cpp"
 
     # ImGui 核心源码
     "imgui/imgui.cpp"

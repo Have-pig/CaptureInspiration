@@ -7,6 +7,18 @@
 },
 {
   "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\set_main_gui.cpp.obj -c E:\\cpp\\CaptureInspiration\\set_main_gui.cpp",
+  "file": "E:/cpp/CaptureInspiration/set_main_gui.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/set_main_gui.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\control_events.cpp.obj -c E:\\cpp\\CaptureInspiration\\control_events.cpp",
+  "file": "E:/cpp/CaptureInspiration/control_events.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/control_events.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
   "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\imgui\\imgui.cpp.obj -c E:\\cpp\\CaptureInspiration\\imgui\\imgui.cpp",
   "file": "E:/cpp/CaptureInspiration/imgui/imgui.cpp",
   "output": "CMakeFiles/CaptureInspiration.dir/imgui/imgui.cpp.obj"

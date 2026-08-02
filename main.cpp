@@ -13,6 +13,9 @@
 #include "imgui/misc/freetype/imgui_freetype.h"
 #include "imgui/misc/cpp/imgui_stdlib.h"
 
+#include "set_main_gui.h"
+#include "control_events.h"
+
 
 int main(int argc, char** argv)
 {
@@ -99,23 +102,18 @@ int main(int argc, char** argv)
     }
 
     // 运行标志
-    bool running = true;
+    AppState app_state;
     
     //背景色
     ImVec4 clear_color = ImVec4(0.68f, 0.82f, 0.95f, 1.00f);
 
-    while (running)
+    while (app_state.running)
     {
         // 处理事件
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
-            ImGui_ImplSDL3_ProcessEvent(&event);
-            if (event.type == SDL_EVENT_QUIT)
-                running = false;
-            if (event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED && 
-                event.window.windowID == SDL_GetWindowID(window))
-                running = false;
+            ProcessSDLEvent(event, window, io, app_state);
         }
 
         // 如果窗口最小化则跳过渲染
@@ -131,8 +129,7 @@ int main(int argc, char** argv)
         ImGui::NewFrame();
 
         // UI代码
-
-
+        BuildMainUIElements(io, clear_color);
 
         // 渲染ImGui界面
         ImGui::Render();
