@@ -75,8 +75,12 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 if(WIN32)
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        $<TARGET_FILE:SDL3::SDL3>
-        "F:/mingw64/x86_64-w64-mingw32/bin/libfreetype-6.dll"
-        ${PROJECT_SOURCE_DIR}/output
+            $<TARGET_FILE:SDL3::SDL3>
+            "F:/mingw64/x86_64-w64-mingw32/bin/libfreetype-6.dll"
+            ${PROJECT_SOURCE_DIR}/output
+
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${PROJECT_SOURCE_DIR}/font_/*.ttf
+            ${PROJECT_SOURCE_DIR}/output/font_
     )
 endif()
