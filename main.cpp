@@ -27,12 +27,11 @@ int main(int argc, char** argv)
     float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());//获取系统缩放
     SDL_WindowFlags window_flags = SDL_WINDOW_RESIZABLE |
                                     SDL_WINDOW_HIDDEN |
-                                    SDL_WINDOW_TRANSPARENT |
-                                    SDL_WINDOWPOS_CENTERED;//窗口特性
+                                    SDL_WINDOW_TRANSPARENT;//窗口特性
     SDL_Window* window = SDL_CreateWindow(
         "CaptureInspiration", 
-        (int)(1280 * main_scale),
-        (int)(800 * main_scale),
+        (int)(1200 * main_scale),
+        (int)(700 * main_scale),
         window_flags
     );//窗口初始化
     if (!window)
@@ -40,6 +39,8 @@ int main(int argc, char** argv)
         printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());
         return 1;
     }
+
+    SDL_ShowWindow(window);
 
     // 创建渲染器
     SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
@@ -72,11 +73,11 @@ int main(int argc, char** argv)
     io.Fonts->SetFontLoader(ImGuiFreeType::GetFontLoader());
     ImFontConfig font_cfg;
     font_cfg.SizePixels = 16.0f; // 设置字体大小
-    font_cfg.FontDataOwnedByAtlas = false;// 外部字体，不由字体图集管理
+    //font_cfg.FontDataOwnedByAtlas = false;// 外部字体，不由字体图集管理
     ImGuiFreeTypeLoaderFlags font_loaderflags = ImGuiFreeTypeLoaderFlags_NoHinting | //关闭字体像素对齐微调
                                                 ImGuiFreeTypeLoaderFlags_LoadColor; //彩色emoji
     font_cfg.FontLoaderFlags = font_loaderflags;
-    const char* font_path = "font/Karla-Regular.ttf"; 
+    const char* font_path = "font_/Karla-Regular.ttf"; 
     const ImWchar char_range[] = {
         0x0020, 0x007E,   // 半角ASCII
         0x3000, 0x303F,   // 中文全角标点符号
@@ -94,7 +95,7 @@ int main(int argc, char** argv)
 
     // 字体文件加载失败，回退默认字体
     if (!font){
-        io.Fonts->AddFontDefaultVector();
+        io.Fonts->AddFontDefault();
     }
 
     // 运行标志

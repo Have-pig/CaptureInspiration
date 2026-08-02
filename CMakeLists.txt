@@ -71,8 +71,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     gdi32
 )
 
-# 编译完成自动复制.dll到output文件夹
+
 if(WIN32)
+    # 编译完成自动复制.dll到output文件夹
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             $<TARGET_FILE:SDL3::SDL3>
@@ -80,7 +81,11 @@ if(WIN32)
             ${PROJECT_SOURCE_DIR}/output
 
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${PROJECT_SOURCE_DIR}/font_/*.ttf
+            "E:/cpp/CaptureInspiration/font_"
             ${PROJECT_SOURCE_DIR}/output/font_
     )
+
+    #隐藏控制台
+    #target_link_options(CaptureInspiration PRIVATE -mwindows)
+
 endif()
