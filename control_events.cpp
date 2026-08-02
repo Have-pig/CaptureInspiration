@@ -2,23 +2,26 @@
 #include <cstdio>
 #include "imgui/imgui.h"
 #include "imgui/backends/imgui_impl_sdl3.h"
+#include <SDL3/SDL.h>
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, AppState& state)
 {
-    // 先把事件转发给ImGui
+    // 事件转发给ImGui
     ImGui_ImplSDL3_ProcessEvent(&event);
 
-    // ImGui正在占用键盘，屏蔽全局快捷键
+    // ImGui是否占用键盘，以屏蔽全局快捷键
     bool imgui_capture_keyboard = io.WantCaptureKeyboard;
 
-    // 窗口关闭事件
+    // 主窗口关闭事件
     if (event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED)
     {
         if (event.window.windowID == SDL_GetWindowID(window))
         {
             state.running = false;
         }
-        return;
     }
 
     // 键盘按下事件：全局快捷键
@@ -44,5 +47,5 @@ void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, Ap
         }
     }
 
-    // 你后续可以在这里继续扩展：鼠标、窗口缩放、文件拖入事件等
+    
 }

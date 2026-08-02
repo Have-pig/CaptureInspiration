@@ -60,6 +60,7 @@ endif()
 # 头文件目录
 target_include_directories(${PROJECT_NAME}
     PRIVATE
+    ${PROJECT_SOURCE_DIR}
     ${PROJECT_SOURCE_DIR}/imgui
     ${PROJECT_SOURCE_DIR}/imgui/backends
     ${PROJECT_SOURCE_DIR}/imgui/misc/freetype
