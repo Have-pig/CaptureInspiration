@@ -2,9 +2,9 @@
 #include <fstream>
 #include <filesystem>
 #include "control_json.h"
-#include "control_events.h"
 #include <string>
 #include <map>
+#include "struct_define.h"
 
 using json = nlohmann::json;
 namespace fs = std::filesystem;

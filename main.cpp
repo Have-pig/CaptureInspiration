@@ -14,9 +14,12 @@
 #include "imgui/misc/cpp/imgui_stdlib.h"
 
 #include "set_main_gui.h"
+#include "json.hpp"
 #include "control_events.h"
 #include "control_json.h"
+#include "struct_define.h"
 
+using json = nlohmann::json;
 
 int main(int argc, char** argv)
 {

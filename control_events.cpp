@@ -1,15 +1,11 @@
 #include "control_events.h"
-#include "control_json.h"
 #include "imgui/imgui.h"
 #include "imgui/backends/imgui_impl_sdl3.h"
 #include <SDL3/SDL.h>
-#include "json.hpp"
 #include <map>
 #include <string>
+#include "struct_define.h"
 
-
-using json = nlohmann::json;
-namespace fs = std::filesystem;
 
 bool MatchHotkey(const Hotkey& hotkey, SDL_Keycode pressedKey, SDL_Keymod mod)
 {

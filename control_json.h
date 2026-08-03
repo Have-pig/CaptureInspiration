@@ -2,7 +2,7 @@
 #include "json.hpp"
 #include <string>
 #include <map>
-#include "control_events.h"
+#include "struct_define.h"
 
 using json = nlohmann::json;
 
