@@ -126,7 +126,8 @@ int main(int argc, char** argv)
         }
 
         // 如果窗口最小化则跳过渲染
-        if (SDL_GetWindowFlags(window) & SDL_WINDOW_MINIMIZED)
+        Uint32 wf = SDL_GetWindowFlags(window);
+        if (wf & SDL_WINDOW_MINIMIZED)
         {
             SDL_Delay(50);
             continue;

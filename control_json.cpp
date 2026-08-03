@@ -9,10 +9,20 @@
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
-// 将Hotkey结构体转换为json对象
-void to_json(json& j, const Hotkey& h)
+// 将Hotkey结构体转换为json对象, 序列化函数
+void to_json(json& j, const Hotkey& hk)
 {
-    j = {{"ctrl",h.ctrl},{"shift",h.shift},{"alt",h.alt},{"name",h.name}};
+    j = {{"key",hk.key},{"ctrl",hk.ctrl},{"shift",hk.shift},{"alt",hk.alt},{"name",hk.name}};
+}
+
+// 将json对象转换为Hotkey结构体, 反序列化函数
+void from_json(const json& j, Hotkey& hk)
+{
+    j.at("key").get_to(hk.key);
+    j.at("ctrl").get_to(hk.ctrl);
+    j.at("shift").get_to(hk.shift);
+    j.at("alt").get_to(hk.alt);
+    j.at("name").get_to(hk.name);
 }
 
 void load_json_from_file(const std::string& file_path, json& j)

@@ -49,13 +49,28 @@ void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, Ap
         SDL_Keycode key = event.key.key;
         SDL_Keymod keymod = event.key.mod;
 
-        /*for ()
+        // 遍历快捷键映射表，检查是否匹配
+        for (auto const& [name, hk] : hotkeymaps)
         {
-            if (MatchHotkey(hk, key, keymod))
+            if(MatchHotkey(hk, key, keymod))
             {
-                
-                break;
+                if(name == "exit")
+                {
+                    state.running = false;
+                }
+                else if(name == "toggle_window")
+                {
+                    Uint32 window_flags = SDL_GetWindowFlags(window);
+                    if (window_flags & SDL_WINDOW_HIDDEN)
+                    {
+                        SDL_ShowWindow(window);
+                    }
+                    else
+                    {
+                        SDL_HideWindow(window);
+                    }
+                }
             }
-        }*/
+        }
     }
 }

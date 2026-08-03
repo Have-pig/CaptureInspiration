@@ -3,6 +3,9 @@
 #include "imgui/imgui.h"
 #include <string>
 #include <map>
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 // 程序运行状态
 struct AppState
