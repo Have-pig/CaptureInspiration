@@ -19,6 +19,7 @@ set(SOURCES
     "main.cpp"
     "set_main_gui.cpp"
     "control_events.cpp"
+    "control_json.cpp"
 
     # ImGui 核心源码
     "imgui/imgui.cpp"

@@ -1,6 +1,6 @@
-#include <cstdlib>
 #include <stdio.h>
-#include <string>
+#include <string.h>
+#include <map>
 
 #include <SDL3/SDL.h>
 
@@ -15,6 +15,7 @@
 
 #include "set_main_gui.h"
 #include "control_events.h"
+#include "control_json.h"
 
 
 int main(int argc, char** argv)
@@ -42,8 +43,6 @@ int main(int argc, char** argv)
         printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());
         return 1;
     }
-
-    SDL_ShowWindow(window);
 
     // 创建渲染器
     SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
@@ -104,8 +103,18 @@ int main(int argc, char** argv)
     // 运行标志
     AppState app_state;
     
-    //背景色
+    // 背景色
     ImVec4 clear_color = ImVec4(0.68f, 0.82f, 0.95f, 1.00f);
+
+    // 加载快捷键
+    std::map<std::string, Hotkey> hotkeymap;
+    std::string hotkey_file_path = "hotkeys.json";
+    json hotkey_json;
+    load_json_from_file(hotkey_file_path, hotkey_json);
+    load_hotkeymaps_from_json(hotkey_json, hotkeymap);
+
+    // 展示窗口
+    SDL_ShowWindow(window);
 
     while (app_state.running)
     {
@@ -113,7 +122,7 @@ int main(int argc, char** argv)
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
-            ProcessSDLEvent(event, window, io, app_state);
+            ProcessSDLEvent(event, window, io, app_state, hotkeymap);
         }
 
         // 如果窗口最小化则跳过渲染

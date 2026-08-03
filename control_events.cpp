@@ -1,13 +1,32 @@
 #include "control_events.h"
-#include <cstdio>
+#include "control_json.h"
 #include "imgui/imgui.h"
 #include "imgui/backends/imgui_impl_sdl3.h"
 #include <SDL3/SDL.h>
 #include "json.hpp"
+#include <map>
+#include <string>
+
 
 using json = nlohmann::json;
+namespace fs = std::filesystem;
 
-void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, AppState& state)
+bool MatchHotkey(const Hotkey& hotkey, SDL_Keycode pressedKey, SDL_Keymod mod)
+{
+    if (hotkey.key != pressedKey)
+        return false;
+
+    // 检查修饰键状态
+    bool ctrlDown = (mod & SDL_KMOD_CTRL) != 0;
+    bool shiftDown = (mod & SDL_KMOD_SHIFT) != 0;
+    bool altDown = (mod & SDL_KMOD_ALT) != 0;
+
+    return hotkey.ctrl == ctrlDown
+        && hotkey.shift == shiftDown
+        && hotkey.alt == altDown;
+}
+
+void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, AppState& state, const std::map<std::string, Hotkey>& hotkeymaps)
 {
     // 事件转发给ImGui
     ImGui_ImplSDL3_ProcessEvent(&event);
@@ -25,27 +44,18 @@ void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, Ap
     }
 
     // 键盘按下事件：全局快捷键
-    if (event.type == SDL_EVENT_KEY_DOWN && !imgui_capture_keyboard)
+    if (event.type == SDL_EVENT_KEY_DOWN && !event.key.repeat && !imgui_capture_keyboard)
     {
         SDL_Keycode key = event.key.key;
-        switch (key)
-        {
-        case SDLK_F1:
-            state.show_sidebar = !state.show_sidebar;
-            printf("快捷键 F1 : 切换侧边栏\n");
-            break;
-        case SDLK_F2:
-            state.show_setting_window = !state.show_setting_window;
-            printf("快捷键 F2 : 打开设置面板\n");
-            break;
-        case SDLK_ESCAPE:
-            state.running = false;
-            printf("快捷键 ESC : 退出程序\n");
-            break;
-        default:
-            break;
-        }
-    }
+        SDL_Keymod keymod = event.key.mod;
 
-    
+        /*for ()
+        {
+            if (MatchHotkey(hk, key, keymod))
+            {
+                
+                break;
+            }
+        }*/
+    }
 }

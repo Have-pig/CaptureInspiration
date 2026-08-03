@@ -152,6 +152,30 @@ control_events.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_events.cpp.s
 .PHONY : control_events.cpp.s
 
+control_json.obj: control_json.cpp.obj
+.PHONY : control_json.obj
+
+# target to build an object file
+control_json.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_json.cpp.obj
+.PHONY : control_json.cpp.obj
+
+control_json.i: control_json.cpp.i
+.PHONY : control_json.i
+
+# target to preprocess a source file
+control_json.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_json.cpp.i
+.PHONY : control_json.cpp.i
+
+control_json.s: control_json.cpp.s
+.PHONY : control_json.s
+
+# target to generate assembly for a file
+control_json.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_json.cpp.s
+.PHONY : control_json.cpp.s
+
 imgui/backends/imgui_impl_sdl3.obj: imgui/backends/imgui_impl_sdl3.cpp.obj
 .PHONY : imgui/backends/imgui_impl_sdl3.obj
 
@@ -404,6 +428,9 @@ help:
 	@echo ... control_events.obj
 	@echo ... control_events.i
 	@echo ... control_events.s
+	@echo ... control_json.obj
+	@echo ... control_json.i
+	@echo ... control_json.s
 	@echo ... imgui/backends/imgui_impl_sdl3.obj
 	@echo ... imgui/backends/imgui_impl_sdl3.i
 	@echo ... imgui/backends/imgui_impl_sdl3.s

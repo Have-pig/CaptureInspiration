@@ -15,3 +15,5 @@ So if you want to modify codes and compile them,remember include them.
     - mingw64, MinGW-W64-builds-5.0.0, <https://www.mingw-w64.org/>
     - Freetype, 2.14.3, <https://freetype.org><br>
       (In this project,all External expansions of Freetype have been disabled)
+    - JSON for Modern C++, version 3.12.0, <https://github.com/nlohmann/json>
+    - Cmake, 4.4.1, <https://cmake.org/>
