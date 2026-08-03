@@ -1,0 +1,9 @@
+{
+    "default": {
+        "alt": false,
+        "ctrl": false,
+        "key": 0,
+        "name": "default",
+        "shift": false
+    }
+}
