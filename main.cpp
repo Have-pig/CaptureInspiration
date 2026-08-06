@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <map>
 
 #include <SDL3/SDL.h>
 
@@ -18,11 +17,15 @@
 #include "control_events.h"
 #include "control_json.h"
 #include "struct_define.h"
+#include "control_tray.h"
 
 using json = nlohmann::json;
 
 int main(int argc, char** argv)
 {
+    // 运行标志
+    AppState app_state;
+
     // 初始化SDL3
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS))
     {
@@ -34,7 +37,8 @@ int main(int argc, char** argv)
     float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());//获取系统缩放
     SDL_WindowFlags window_flags = SDL_WINDOW_RESIZABLE |
                                     SDL_WINDOW_HIDDEN |
-                                    SDL_WINDOW_TRANSPARENT;//窗口特性
+                                    SDL_WINDOW_TRANSPARENT |
+                                    SDL_WINDOW_TOOLTIP;//窗口特性
     SDL_Window* window = SDL_CreateWindow(
         "CaptureInspiration", 
         (int)(1200 * main_scale),
@@ -45,6 +49,17 @@ int main(int argc, char** argv)
     {
         printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());
         return 1;
+    }
+
+    // 设置窗口图标
+    app_state.icon_surface = SDL_LoadSurface("assets/icon.png");
+    if (app_state.icon_surface != nullptr)
+    {
+        SDL_SetWindowIcon(window, app_state.icon_surface);
+    }
+    else
+    {
+        printf("图标加载失败: %s\n", SDL_GetError());
     }
 
     // 创建渲染器
@@ -82,7 +97,7 @@ int main(int argc, char** argv)
     ImGuiFreeTypeLoaderFlags font_loaderflags = ImGuiFreeTypeLoaderFlags_NoHinting | //关闭字体像素对齐微调
                                                 ImGuiFreeTypeLoaderFlags_LoadColor; //彩色emoji
     font_cfg.FontLoaderFlags = font_loaderflags;
-    const char* font_path = "font_/Karla-Regular.ttf"; 
+    const char* font_path = "font_/msyh.ttc"; 
     const ImWchar char_range[] = {
         0x0020, 0x007E,   // 半角ASCII
         0x3000, 0x303F,   // 中文全角标点符号
@@ -98,23 +113,23 @@ int main(int argc, char** argv)
         char_range
     );
 
-    // 字体文件加载失败，回退默认字体
-    if (!font){
-        io.Fonts->AddFontDefault();
+    if(font)
+    {
+        io.FontDefault = font; // 设置默认字体
     }
-
-    // 运行标志
-    AppState app_state;
+   
+    if (!font){
+        io.Fonts->AddFontDefault(); // 字体文件加载失败，回退默认字体
+    }
     
     // 背景色
     ImVec4 clear_color = ImVec4(0.68f, 0.82f, 0.95f, 1.00f);
 
     // 加载快捷键
-    std::map<std::string, Hotkey> hotkeymap;
     std::string hotkey_file_path = "hotkeys.json";
     json hotkey_json;
     load_json_from_file(hotkey_file_path, hotkey_json);
-    load_hotkeymaps_from_json(hotkey_json, hotkeymap);
+    load_hotkeymaps_from_json(hotkey_json, app_state.hotkeymap);
 
     // 展示窗口
     SDL_ShowWindow(window);
@@ -125,7 +140,7 @@ int main(int argc, char** argv)
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
-            ProcessSDLEvent(event, window, io, app_state, hotkeymap);
+            ProcessSDLEvent(event, window, io, app_state);
         }
 
         // 如果窗口最小化则跳过渲染
@@ -169,6 +184,8 @@ int main(int argc, char** argv)
     ImGui_ImplSDL3_Shutdown();
     ImGui::DestroyContext();
 
+    SDL_DestroySurface(app_state.icon_surface);
+    DestroySystemTray(app_state);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();

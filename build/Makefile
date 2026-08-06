@@ -176,6 +176,30 @@ control_json.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_json.cpp.s
 .PHONY : control_json.cpp.s
 
+control_tray.obj: control_tray.cpp.obj
+.PHONY : control_tray.obj
+
+# target to build an object file
+control_tray.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_tray.cpp.obj
+.PHONY : control_tray.cpp.obj
+
+control_tray.i: control_tray.cpp.i
+.PHONY : control_tray.i
+
+# target to preprocess a source file
+control_tray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_tray.cpp.i
+.PHONY : control_tray.cpp.i
+
+control_tray.s: control_tray.cpp.s
+.PHONY : control_tray.s
+
+# target to generate assembly for a file
+control_tray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_tray.cpp.s
+.PHONY : control_tray.cpp.s
+
 imgui/backends/imgui_impl_sdl3.obj: imgui/backends/imgui_impl_sdl3.cpp.obj
 .PHONY : imgui/backends/imgui_impl_sdl3.obj
 
@@ -416,6 +440,30 @@ set_main_gui.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/set_main_gui.cpp.s
 .PHONY : set_main_gui.cpp.s
 
+settings_gui.obj: settings_gui.cpp.obj
+.PHONY : settings_gui.obj
+
+# target to build an object file
+settings_gui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/settings_gui.cpp.obj
+.PHONY : settings_gui.cpp.obj
+
+settings_gui.i: settings_gui.cpp.i
+.PHONY : settings_gui.i
+
+# target to preprocess a source file
+settings_gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/settings_gui.cpp.i
+.PHONY : settings_gui.cpp.i
+
+settings_gui.s: settings_gui.cpp.s
+.PHONY : settings_gui.s
+
+# target to generate assembly for a file
+settings_gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/settings_gui.cpp.s
+.PHONY : settings_gui.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -431,6 +479,9 @@ help:
 	@echo ... control_json.obj
 	@echo ... control_json.i
 	@echo ... control_json.s
+	@echo ... control_tray.obj
+	@echo ... control_tray.i
+	@echo ... control_tray.s
 	@echo ... imgui/backends/imgui_impl_sdl3.obj
 	@echo ... imgui/backends/imgui_impl_sdl3.i
 	@echo ... imgui/backends/imgui_impl_sdl3.s
@@ -461,6 +512,9 @@ help:
 	@echo ... set_main_gui.obj
 	@echo ... set_main_gui.i
 	@echo ... set_main_gui.s
+	@echo ... settings_gui.obj
+	@echo ... settings_gui.i
+	@echo ... settings_gui.s
 .PHONY : help
 
 

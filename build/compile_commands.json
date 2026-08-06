@@ -7,9 +7,9 @@
 },
 {
   "directory": "E:/cpp/CaptureInspiration/build",
-  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\set_main_gui.cpp.obj -c E:\\cpp\\CaptureInspiration\\set_main_gui.cpp",
-  "file": "E:/cpp/CaptureInspiration/set_main_gui.cpp",
-  "output": "CMakeFiles/CaptureInspiration.dir/set_main_gui.cpp.obj"
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\control_tray.cpp.obj -c E:\\cpp\\CaptureInspiration\\control_tray.cpp",
+  "file": "E:/cpp/CaptureInspiration/control_tray.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/control_tray.cpp.obj"
 },
 {
   "directory": "E:/cpp/CaptureInspiration/build",
@@ -22,6 +22,18 @@
   "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\control_json.cpp.obj -c E:\\cpp\\CaptureInspiration\\control_json.cpp",
   "file": "E:/cpp/CaptureInspiration/control_json.cpp",
   "output": "CMakeFiles/CaptureInspiration.dir/control_json.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\settings_gui.cpp.obj -c E:\\cpp\\CaptureInspiration\\settings_gui.cpp",
+  "file": "E:/cpp/CaptureInspiration/settings_gui.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/settings_gui.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\set_main_gui.cpp.obj -c E:\\cpp\\CaptureInspiration\\set_main_gui.cpp",
+  "file": "E:/cpp/CaptureInspiration/set_main_gui.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/set_main_gui.cpp.obj"
 },
 {
   "directory": "E:/cpp/CaptureInspiration/build",

@@ -17,10 +17,13 @@ list(APPEND CMAKE_PREFIX_PATH ${SDL_PREFIX})
 # ========== 源文件列表 ==========
 set(SOURCES
     "main.cpp"
-    "set_main_gui.cpp"
+    "control_tray.cpp"
     "control_events.cpp"
     "control_json.cpp"
-
+    "control_tray.cpp"
+    "settings_gui.cpp"
+    "set_main_gui.cpp"
+    
     # ImGui 核心源码
     "imgui/imgui.cpp"
     "imgui/imgui_draw.cpp"
@@ -77,7 +80,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 
 
 if(WIN32)
-    # 编译完成自动复制.dll到output文件夹
+    # 编译完成自动复制到output文件夹
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             $<TARGET_FILE:SDL3::SDL3>
@@ -87,6 +90,10 @@ if(WIN32)
         COMMAND ${CMAKE_COMMAND} -E copy_directory
             "E:/cpp/CaptureInspiration/font_"
             ${PROJECT_SOURCE_DIR}/output/font_
+
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "E:/cpp/CaptureInspiration/assets"
+            ${PROJECT_SOURCE_DIR}/output/assets
     )
 
     #隐藏控制台

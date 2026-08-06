@@ -2,12 +2,11 @@
 #include "imgui/imgui.h"
 #include "imgui/backends/imgui_impl_sdl3.h"
 #include <SDL3/SDL.h>
-#include <map>
-#include <string>
 #include "struct_define.h"
+#include "control_tray.h"
 
 
-bool MatchHotkey(const Hotkey& hotkey, SDL_Keycode pressedKey, SDL_Keymod mod)
+static bool MatchHotkey(const Hotkey& hotkey, SDL_Keycode pressedKey, SDL_Keymod mod)
 {
     if (hotkey.key != pressedKey)
         return false;
@@ -22,7 +21,7 @@ bool MatchHotkey(const Hotkey& hotkey, SDL_Keycode pressedKey, SDL_Keymod mod)
         && hotkey.alt == altDown;
 }
 
-void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, AppState& state, const std::map<std::string, Hotkey>& hotkeymaps)
+void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, AppState& state)
 {
     // 事件转发给ImGui
     ImGui_ImplSDL3_ProcessEvent(&event);
@@ -34,9 +33,24 @@ void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, Ap
     if (event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED)
     {
         if (event.window.windowID == SDL_GetWindowID(window))
-        {
-            state.running = false;
+        {   
+            if (state.is_hide_to_tray)
+            {
+                // 如果开启了隐藏到托盘，则隐藏窗口而不是退出
+                CreateSystemTray(state, window, state.icon_surface);
+                SDL_HideWindow(window);
+            }else
+            {
+                state.running = false;
+            }
+           
         }
+    }
+
+    // 全局关闭
+    if (event.type == SDL_EVENT_QUIT)
+    {
+        state.running = false;
     }
 
     // 键盘按下事件：全局快捷键
@@ -46,7 +60,7 @@ void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, Ap
         SDL_Keymod keymod = event.key.mod;
 
         // 遍历快捷键映射表，检查是否匹配
-        for (auto const& [name, hk] : hotkeymaps)
+        for (auto const& [name, hk] : state.hotkeymap)
         {
             if(MatchHotkey(hk, key, keymod))
             {
