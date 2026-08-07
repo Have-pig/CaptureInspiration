@@ -4,6 +4,8 @@
 #include <SDL3/SDL.h>
 #include "struct_define.h"
 #include "control_tray.h"
+#include "control_taskbar.h"
+#include <stdio.h>
 
 
 static bool MatchHotkey(const Hotkey& hotkey, SDL_Keycode pressedKey, SDL_Keymod mod)
@@ -21,7 +23,7 @@ static bool MatchHotkey(const Hotkey& hotkey, SDL_Keycode pressedKey, SDL_Keymod
         && hotkey.alt == altDown;
 }
 
-void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, AppState& state)
+void ProcessSDLEvent(const SDL_Event& event, ImGuiIO& io, AppState& state)
 {
     // 事件转发给ImGui
     ImGui_ImplSDL3_ProcessEvent(&event);
@@ -32,25 +34,25 @@ void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, Ap
     // 主窗口关闭事件
     if (event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED)
     {
-        if (event.window.windowID == SDL_GetWindowID(window))
-        {   
-            if (state.is_hide_to_tray)
-            {
-                // 如果开启了隐藏到托盘，则隐藏窗口而不是退出
-                CreateSystemTray(state, window, state.icon_surface);
-                SDL_HideWindow(window);
-            }else
-            {
-                state.running = false;
-            }
-           
+        if (state.is_hide_to_tray)
+        {
+            // 如果开启了隐藏到托盘，则隐藏窗口而不是退出
+            HideWindowTaskbarButton(state.window);
+            CreateSystemTray(state);
+            SDL_HideWindow(state.window);
+        }else
+        {
+            state.running = false;
         }
     }
 
     // 全局关闭
     if (event.type == SDL_EVENT_QUIT)
     {
-        state.running = false;
+        if(!state.main_tray)
+        {
+            state.running = false;
+        }
     }
 
     // 键盘按下事件：全局快捷键
@@ -70,14 +72,14 @@ void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, Ap
                 }
                 else if(name == "toggle_window")
                 {
-                    Uint32 window_flags = SDL_GetWindowFlags(window);
+                    Uint32 window_flags = SDL_GetWindowFlags(state.window);
                     if (window_flags & SDL_WINDOW_HIDDEN)
                     {
-                        SDL_ShowWindow(window);
+                        SDL_ShowWindow(state.window);
                     }
                     else
                     {
-                        SDL_HideWindow(window);
+                        SDL_HideWindow(state.window);
                     }
                 }
             }

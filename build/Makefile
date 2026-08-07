@@ -176,6 +176,30 @@ control_json.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_json.cpp.s
 .PHONY : control_json.cpp.s
 
+control_taskbar.obj: control_taskbar.cpp.obj
+.PHONY : control_taskbar.obj
+
+# target to build an object file
+control_taskbar.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_taskbar.cpp.obj
+.PHONY : control_taskbar.cpp.obj
+
+control_taskbar.i: control_taskbar.cpp.i
+.PHONY : control_taskbar.i
+
+# target to preprocess a source file
+control_taskbar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_taskbar.cpp.i
+.PHONY : control_taskbar.cpp.i
+
+control_taskbar.s: control_taskbar.cpp.s
+.PHONY : control_taskbar.s
+
+# target to generate assembly for a file
+control_taskbar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_taskbar.cpp.s
+.PHONY : control_taskbar.cpp.s
+
 control_tray.obj: control_tray.cpp.obj
 .PHONY : control_tray.obj
 
@@ -479,6 +503,9 @@ help:
 	@echo ... control_json.obj
 	@echo ... control_json.i
 	@echo ... control_json.s
+	@echo ... control_taskbar.obj
+	@echo ... control_taskbar.i
+	@echo ... control_taskbar.s
 	@echo ... control_tray.obj
 	@echo ... control_tray.i
 	@echo ... control_tray.s

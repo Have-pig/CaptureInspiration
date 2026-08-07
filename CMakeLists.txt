@@ -23,6 +23,7 @@ set(SOURCES
     "control_tray.cpp"
     "settings_gui.cpp"
     "set_main_gui.cpp"
+    "control_taskbar.cpp"
     
     # ImGui 核心源码
     "imgui/imgui.cpp"

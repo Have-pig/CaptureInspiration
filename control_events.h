@@ -11,4 +11,4 @@
  * @param io ImGuiIO
  * @param state 程序状态
  */
-void ProcessSDLEvent(const SDL_Event& event, SDL_Window* window, ImGuiIO& io, AppState& state);
+void ProcessSDLEvent(const SDL_Event& event, ImGuiIO& io, AppState& state);

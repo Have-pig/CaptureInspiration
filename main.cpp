@@ -24,7 +24,7 @@ using json = nlohmann::json;
 int main(int argc, char** argv)
 {
     // 运行标志
-    AppState app_state;
+    AppState app_state = {};
 
     // 初始化SDL3
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS))
@@ -37,15 +37,14 @@ int main(int argc, char** argv)
     float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());//获取系统缩放
     SDL_WindowFlags window_flags = SDL_WINDOW_RESIZABLE |
                                     SDL_WINDOW_HIDDEN |
-                                    SDL_WINDOW_TRANSPARENT |
-                                    SDL_WINDOW_TOOLTIP;//窗口特性
-    SDL_Window* window = SDL_CreateWindow(
+                                    SDL_WINDOW_TRANSPARENT;//窗口特性
+    app_state.window = SDL_CreateWindow(
         "CaptureInspiration", 
         (int)(1200 * main_scale),
         (int)(700 * main_scale),
         window_flags
     );//窗口初始化
-    if (!window)
+    if (!app_state.window)
     {
         printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());
         return 1;
@@ -55,19 +54,19 @@ int main(int argc, char** argv)
     app_state.icon_surface = SDL_LoadSurface("assets/icon.png");
     if (app_state.icon_surface != nullptr)
     {
-        SDL_SetWindowIcon(window, app_state.icon_surface);
+        SDL_SetWindowIcon(app_state.window, app_state.icon_surface);
     }
     else
     {
-        printf("图标加载失败: %s\n", SDL_GetError());
+        printf("Error: SDL_LoadSurface(): %s\n", SDL_GetError());
     }
 
     // 创建渲染器
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
+    SDL_Renderer* renderer = SDL_CreateRenderer(app_state.window, nullptr);
     if (!renderer)
     {
         printf("Error: SDL_CreateRenderer(): %s\n", SDL_GetError());
-        SDL_DestroyWindow(window);
+        SDL_DestroyWindow(app_state.window);
         SDL_Quit();
         return 1;
     }
@@ -85,7 +84,7 @@ int main(int argc, char** argv)
     style.FontScaleDpi = main_scale;// 设置字体缩放
 
     // ImGui SDL3后端绑定
-    ImGui_ImplSDL3_InitForSDLRenderer(window, renderer);
+    ImGui_ImplSDL3_InitForSDLRenderer(app_state.window, renderer);
     ImGui_ImplSDLRenderer3_Init(renderer);
 
     // ttf字体文件加载
@@ -132,7 +131,7 @@ int main(int argc, char** argv)
     load_hotkeymaps_from_json(hotkey_json, app_state.hotkeymap);
 
     // 展示窗口
-    SDL_ShowWindow(window);
+    SDL_ShowWindow(app_state.window);
 
     while (app_state.running)
     {
@@ -140,11 +139,11 @@ int main(int argc, char** argv)
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
-            ProcessSDLEvent(event, window, io, app_state);
+            ProcessSDLEvent(event, io, app_state);
         }
 
         // 如果窗口最小化则跳过渲染
-        Uint32 wf = SDL_GetWindowFlags(window);
+        Uint32 wf = SDL_GetWindowFlags(app_state.window);
         if (wf & SDL_WINDOW_MINIMIZED)
         {
             SDL_Delay(50);
@@ -184,10 +183,10 @@ int main(int argc, char** argv)
     ImGui_ImplSDL3_Shutdown();
     ImGui::DestroyContext();
 
-    SDL_DestroySurface(app_state.icon_surface);
     DestroySystemTray(app_state);
+    SDL_DestroySurface(app_state.icon_surface);
     SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+    SDL_DestroyWindow(app_state.window);
     SDL_Quit();
 
     return 0;
