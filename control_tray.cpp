@@ -15,17 +15,15 @@ static void SDLCALL TrayCallback(void* userdata, SDL_TrayEntry* entry)
     {   
         case Tray_MenuItemTag::TRAY_ITEM_SHOW:
         {
-            ShowWindowTaskbarButton(ctx->window);
-            SDL_ShowWindow(ctx->window);
-            SDL_RestoreWindow(ctx->window);
-            SDL_RaiseWindow(ctx->window);
+            ShowWindowTaskbarButton(ctx->app->window);
+            SDL_ShowWindow(ctx->app->window);
+            SDL_RestoreWindow(ctx->app->window);
+            SDL_RaiseWindow(ctx->app->window);
             break;
         }
         case Tray_MenuItemTag::TRAY_ITEM_QUIT:
         {
-            SDL_Event event{};
-            event.type = SDL_EVENT_QUIT;
-            SDL_PushEvent(&event);
+            ctx->app->running = false;
             break;
         }
     }
@@ -47,11 +45,11 @@ void CreateSystemTray(AppState& state)
     // 托盘菜单配置
     Tray_MenuItemTag* tag_show = new Tray_MenuItemTag{
         Tray_MenuItemTag::TRAY_ITEM_SHOW,
-        state.window
+        &state
     };
     Tray_MenuItemTag* tag_quit = new Tray_MenuItemTag{
         Tray_MenuItemTag::TRAY_ITEM_QUIT,
-        state.window
+        &state
     };
     SDL_TrayEntry* entry_show = SDL_InsertTrayEntryAt(menu, -1, "显示窗口", SDL_TRAYENTRY_BUTTON);
     SDL_InsertTrayEntryAt(menu, -1, nullptr, SDL_TRAYENTRY_BUTTON);// 菜单分割线

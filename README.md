@@ -17,3 +17,4 @@ So if you want to modify codes and compile them,remember include them.
       (In this project,all External expansions of Freetype have been disabled)
     - JSON for Modern C++, version 3.12.0, <https://github.com/nlohmann/json>
     - Cmake, 4.4.1, <https://cmake.org/>
+    - platform:windows(to hide taskbar,use windows.h)

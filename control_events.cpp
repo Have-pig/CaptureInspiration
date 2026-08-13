@@ -56,7 +56,7 @@ void ProcessSDLEvent(const SDL_Event& event, ImGuiIO& io, AppState& state)
     }
 
     // 键盘按下事件：全局快捷键
-    if (event.type == SDL_EVENT_KEY_DOWN && !event.key.repeat && !imgui_capture_keyboard)
+    if (event.type == SDL_EVENT_KEY_DOWN && !event.key.repeat && !imgui_capture_keyboard && state.is_use_hotkey)
     {
         SDL_Keycode key = event.key.key;
         SDL_Keymod keymod = event.key.mod;
@@ -70,15 +70,20 @@ void ProcessSDLEvent(const SDL_Event& event, ImGuiIO& io, AppState& state)
                 {
                     state.running = false;
                 }
-                else if(name == "toggle_window")
+                else if(name == "call_window")
                 {
                     Uint32 window_flags = SDL_GetWindowFlags(state.window);
                     if (window_flags & SDL_WINDOW_HIDDEN)
                     {
+                        ShowWindowTaskbarButton(state.window);
                         SDL_ShowWindow(state.window);
+                        SDL_RestoreWindow(state.window);
+                        SDL_RaiseWindow(state.window);
                     }
                     else
                     {
+                        HideWindowTaskbarButton(state.window);
+                        CreateSystemTray(state);
                         SDL_HideWindow(state.window);
                     }
                 }

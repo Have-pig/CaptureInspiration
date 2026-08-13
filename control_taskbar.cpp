@@ -9,11 +9,15 @@
 // 隐藏任务栏
 void HideWindowTaskbarButton(SDL_Window* win)
 {
-    HWND hwnd = (HWND)SDL_GetWindowProperties(win);
+    HWND hwnd = (HWND)SDL_GetPointerProperty(
+    SDL_GetWindowProperties(win),
+    SDL_PROP_WINDOW_WIN32_HWND_POINTER,
+    NULL); // 拿到窗口句柄
+
     if (!hwnd) return;
 
     LONG_PTR exstyle = GetWindowLongPtrW(hwnd, GWL_EXSTYLE);
-    exstyle |= WS_EX_TOOLWINDOW;      // 工具窗口，不在任务栏显示图标
+    exstyle |= WS_EX_TOOLWINDOW; // 工具窗口，不在任务栏显示图标
     exstyle &= ~WS_EX_APPWINDOW;
     SetWindowLongPtrW(hwnd, GWL_EXSTYLE, exstyle);
 
@@ -24,7 +28,10 @@ void HideWindowTaskbarButton(SDL_Window* win)
 // 恢复任务栏显示
 void ShowWindowTaskbarButton(SDL_Window* win)
 {
-    HWND hwnd = (HWND)SDL_GetWindowProperties(win);
+    HWND hwnd = (HWND)SDL_GetPointerProperty(
+    SDL_GetWindowProperties(win),
+    SDL_PROP_WINDOW_WIN32_HWND_POINTER,
+    NULL); // 拿到窗口句柄
     if (!hwnd) return;
 
     LONG_PTR exstyle = GetWindowLongPtrW(hwnd, GWL_EXSTYLE);

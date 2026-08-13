@@ -130,6 +130,10 @@ int main(int argc, char** argv)
     load_json_from_file(hotkey_file_path, hotkey_json);
     load_hotkeymaps_from_json(hotkey_json, app_state.hotkeymap);
 
+    // 加载设置
+    std::string settings_file_path = "settings.json";
+
+
     // 展示窗口
     SDL_ShowWindow(app_state.window);
 
@@ -156,7 +160,7 @@ int main(int argc, char** argv)
         ImGui::NewFrame();
 
         // UI代码
-        BuildMainUIElements(io, clear_color);
+        BuildMainUIElements(io, clear_color, style);
 
         // 渲染ImGui界面
         ImGui::Render();
