@@ -7,6 +7,12 @@
 },
 {
   "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\setting_json.cpp.obj -c E:\\cpp\\CaptureInspiration\\setting_json.cpp",
+  "file": "E:/cpp/CaptureInspiration/setting_json.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/setting_json.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
   "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\control_tray.cpp.obj -c E:\\cpp\\CaptureInspiration\\control_tray.cpp",
   "file": "E:/cpp/CaptureInspiration/control_tray.cpp",
   "output": "CMakeFiles/CaptureInspiration.dir/control_tray.cpp.obj"
@@ -40,6 +46,12 @@
   "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\control_taskbar.cpp.obj -c E:\\cpp\\CaptureInspiration\\control_taskbar.cpp",
   "file": "E:/cpp/CaptureInspiration/control_taskbar.cpp",
   "output": "CMakeFiles/CaptureInspiration.dir/control_taskbar.cpp.obj"
+},
+{
+  "directory": "E:/cpp/CaptureInspiration/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles\\CaptureInspiration.dir\\includes_CXX.rsp -g -std=gnu++17 -finput-charset=UTF-8 -o CMakeFiles\\CaptureInspiration.dir\\inslib_gui.cpp.obj -c E:\\cpp\\CaptureInspiration\\inslib_gui.cpp",
+  "file": "E:/cpp/CaptureInspiration/inslib_gui.cpp",
+  "output": "CMakeFiles/CaptureInspiration.dir/inslib_gui.cpp.obj"
 },
 {
   "directory": "E:/cpp/CaptureInspiration/build",

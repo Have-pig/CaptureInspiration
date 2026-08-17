@@ -1,10 +1,14 @@
 #include "imgui/imgui.h"
 #include "set_main_gui.h"
 #include "settings_gui.h"
+#include "inslib_gui.h"
+#include "struct_define.h"
 
-void BuildMainUIElements(ImGuiIO& io, ImVec4& bg_color, ImGuiStyle& style)
+
+void BuildMainUIElements(ImGuiIO& io, ImVec4& bg_color, ImGuiStyle& style, AppState& app)
 {
     static bool show_settings = false;
+    static bool show_ins_lib = false;
     ImVec2 main_pos;
     ImVec2 main_size;
     float  gap_left;
@@ -23,12 +27,23 @@ void BuildMainUIElements(ImGuiIO& io, ImVec4& bg_color, ImGuiStyle& style)
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ButtonAct_color);
 
         if(ImGui::Button("灵感库", ImVec2(100, 30))){
-
+            if(show_ins_lib)
+            {
+                show_ins_lib = false;
+            }else{
+                show_ins_lib = true;
+            }
         }
 
         if(ImGui::Button("设置", ImVec2(100, 30)))
         {
-            show_settings = true;
+            if(show_settings)
+            {
+                show_settings = false;
+            }else{
+                show_settings = true;
+            }
+            
         }
 
         ImGui::PopStyleColor(3);
@@ -44,6 +59,11 @@ void BuildMainUIElements(ImGuiIO& io, ImVec4& bg_color, ImGuiStyle& style)
     if (show_settings)
     {   
         BuildSettingsUIElements(io, bg_color, show_settings,
-                            main_pos, main_size, gap_left, gap_right);
+                            main_pos, main_size, gap_left, gap_right, app, style);
+    }
+
+    if(show_ins_lib)
+    {
+
     }
 }

@@ -34,7 +34,7 @@ void ProcessSDLEvent(const SDL_Event& event, ImGuiIO& io, AppState& state)
     // 主窗口关闭事件
     if (event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED)
     {
-        if (state.is_hide_to_tray)
+        if (state.settings.is_hide_to_tray)
         {
             // 如果开启了隐藏到托盘，则隐藏窗口而不是退出
             HideWindowTaskbarButton(state.window);
@@ -56,7 +56,7 @@ void ProcessSDLEvent(const SDL_Event& event, ImGuiIO& io, AppState& state)
     }
 
     // 键盘按下事件：全局快捷键
-    if (event.type == SDL_EVENT_KEY_DOWN && !event.key.repeat && !imgui_capture_keyboard && state.is_use_hotkey)
+    if (event.type == SDL_EVENT_KEY_DOWN && !event.key.repeat && !imgui_capture_keyboard && state.settings.is_use_hotkey)
     {
         SDL_Keycode key = event.key.key;
         SDL_Keymod keymod = event.key.mod;

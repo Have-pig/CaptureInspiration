@@ -416,6 +416,30 @@ imgui/misc/freetype/imgui_freetype.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/imgui/misc/freetype/imgui_freetype.cpp.s
 .PHONY : imgui/misc/freetype/imgui_freetype.cpp.s
 
+inslib_gui.obj: inslib_gui.cpp.obj
+.PHONY : inslib_gui.obj
+
+# target to build an object file
+inslib_gui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/inslib_gui.cpp.obj
+.PHONY : inslib_gui.cpp.obj
+
+inslib_gui.i: inslib_gui.cpp.i
+.PHONY : inslib_gui.i
+
+# target to preprocess a source file
+inslib_gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/inslib_gui.cpp.i
+.PHONY : inslib_gui.cpp.i
+
+inslib_gui.s: inslib_gui.cpp.s
+.PHONY : inslib_gui.s
+
+# target to generate assembly for a file
+inslib_gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/inslib_gui.cpp.s
+.PHONY : inslib_gui.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -463,6 +487,30 @@ set_main_gui.s: set_main_gui.cpp.s
 set_main_gui.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/set_main_gui.cpp.s
 .PHONY : set_main_gui.cpp.s
+
+setting_json.obj: setting_json.cpp.obj
+.PHONY : setting_json.obj
+
+# target to build an object file
+setting_json.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/setting_json.cpp.obj
+.PHONY : setting_json.cpp.obj
+
+setting_json.i: setting_json.cpp.i
+.PHONY : setting_json.i
+
+# target to preprocess a source file
+setting_json.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/setting_json.cpp.i
+.PHONY : setting_json.cpp.i
+
+setting_json.s: setting_json.cpp.s
+.PHONY : setting_json.s
+
+# target to generate assembly for a file
+setting_json.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/setting_json.cpp.s
+.PHONY : setting_json.cpp.s
 
 settings_gui.obj: settings_gui.cpp.obj
 .PHONY : settings_gui.obj
@@ -533,12 +581,18 @@ help:
 	@echo ... imgui/misc/freetype/imgui_freetype.obj
 	@echo ... imgui/misc/freetype/imgui_freetype.i
 	@echo ... imgui/misc/freetype/imgui_freetype.s
+	@echo ... inslib_gui.obj
+	@echo ... inslib_gui.i
+	@echo ... inslib_gui.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
 	@echo ... set_main_gui.obj
 	@echo ... set_main_gui.i
 	@echo ... set_main_gui.s
+	@echo ... setting_json.obj
+	@echo ... setting_json.i
+	@echo ... setting_json.s
 	@echo ... settings_gui.obj
 	@echo ... settings_gui.i
 	@echo ... settings_gui.s

@@ -14,6 +14,11 @@ struct Hotkey
     std::string name = "default"; // 快捷键名称
 };
 
+struct Setting
+{
+    bool is_hide_to_tray = false; // 开启关闭窗口隐藏到托盘
+    bool is_use_hotkey = false; // 是否使用快捷键
+};
 // 程序运行状态
 struct AppState
 {
@@ -22,10 +27,10 @@ struct AppState
     SDL_Tray* main_tray = nullptr; // 托盘对象
     SDL_Surface* icon_surface = nullptr; // 图标
     SDL_Window* window = nullptr; // 窗口指针
+
     std::map<std::string, Hotkey> hotkeymap; // 热键映射
 
-    bool is_hide_to_tray = true; // 开启关闭窗口隐藏到托盘
-    bool is_use_hotkey = false; // 是否使用快捷键
+    Setting settings; // 设置项
 };
 
 // 自定义标记，用来区分托盘菜单项

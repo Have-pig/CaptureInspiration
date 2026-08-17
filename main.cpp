@@ -18,8 +18,10 @@
 #include "control_json.h"
 #include "struct_define.h"
 #include "control_tray.h"
+#include "setting_json.h"
 
 using json = nlohmann::json;
+
 
 int main(int argc, char** argv)
 {
@@ -127,12 +129,14 @@ int main(int argc, char** argv)
     // 加载快捷键
     std::string hotkey_file_path = "hotkeys.json";
     json hotkey_json;
-    load_json_from_file(hotkey_file_path, hotkey_json);
+    load_hotkey_json(hotkey_file_path, hotkey_json);
     load_hotkeymaps_from_json(hotkey_json, app_state.hotkeymap);
 
     // 加载设置
     std::string settings_file_path = "settings.json";
-
+    json setting_json;
+    load_setting_json(settings_file_path, setting_json);
+    load_setting_from_json(setting_json, app_state.settings);
 
     // 展示窗口
     SDL_ShowWindow(app_state.window);
@@ -160,7 +164,7 @@ int main(int argc, char** argv)
         ImGui::NewFrame();
 
         // UI代码
-        BuildMainUIElements(io, clear_color, style);
+        BuildMainUIElements(io, clear_color, style, app_state);
 
         // 渲染ImGui界面
         ImGui::Render();

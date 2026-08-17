@@ -9,6 +9,7 @@
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
+
 // 将Hotkey结构体转换为json对象, 序列化函数
 void to_json(json& j, const Hotkey& hk)
 {
@@ -25,7 +26,7 @@ void from_json(const json& j, Hotkey& hk)
     j.at("name").get_to(hk.name);
 }
 
-void load_json_from_file(const std::string& file_path, json& j)
+void load_hotkey_json(const std::string& file_path, json& j)
 {
     Hotkey default_hotkey;
     std::map<std::string, Hotkey> undefined_hotkeys = {{default_hotkey.name, default_hotkey}};

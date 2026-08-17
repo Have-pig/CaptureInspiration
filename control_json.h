@@ -6,12 +6,13 @@
 
 using json = nlohmann::json;
 
+
 /**
  * @brief 从文件加载json，若没有文件则创建文件
  * @param file_path 文件路径
  * @param j json对象
  */
-void load_json_from_file(const std::string& file_path, json& j);
+void load_hotkey_json(const std::string& file_path, json& j);
 
 /**
  * @brief 从json加载hotkeymaps
