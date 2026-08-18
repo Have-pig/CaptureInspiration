@@ -224,6 +224,30 @@ control_tray.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/control_tray.cpp.s
 .PHONY : control_tray.cpp.s
 
+global_hotkey.obj: global_hotkey.cpp.obj
+.PHONY : global_hotkey.obj
+
+# target to build an object file
+global_hotkey.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/global_hotkey.cpp.obj
+.PHONY : global_hotkey.cpp.obj
+
+global_hotkey.i: global_hotkey.cpp.i
+.PHONY : global_hotkey.i
+
+# target to preprocess a source file
+global_hotkey.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/global_hotkey.cpp.i
+.PHONY : global_hotkey.cpp.i
+
+global_hotkey.s: global_hotkey.cpp.s
+.PHONY : global_hotkey.s
+
+# target to generate assembly for a file
+global_hotkey.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CaptureInspiration.dir\build.make CMakeFiles/CaptureInspiration.dir/global_hotkey.cpp.s
+.PHONY : global_hotkey.cpp.s
+
 imgui/backends/imgui_impl_sdl3.obj: imgui/backends/imgui_impl_sdl3.cpp.obj
 .PHONY : imgui/backends/imgui_impl_sdl3.obj
 
@@ -557,6 +581,9 @@ help:
 	@echo ... control_tray.obj
 	@echo ... control_tray.i
 	@echo ... control_tray.s
+	@echo ... global_hotkey.obj
+	@echo ... global_hotkey.i
+	@echo ... global_hotkey.s
 	@echo ... imgui/backends/imgui_impl_sdl3.obj
 	@echo ... imgui/backends/imgui_impl_sdl3.i
 	@echo ... imgui/backends/imgui_impl_sdl3.s

@@ -25,6 +25,7 @@ void BuildMainUIElements(ImGuiIO& io, ImVec4& bg_color, ImGuiStyle& style, AppSt
         ImGui::PushStyleColor(ImGuiCol_Button, ButtonBg_color);
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ButtonHvd_color);
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ButtonAct_color);
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.0f, 0.5f, 1.0f));
 
         if(ImGui::Button("灵感库", ImVec2(100, 30))){
             if(show_ins_lib)
@@ -46,7 +47,7 @@ void BuildMainUIElements(ImGuiIO& io, ImVec4& bg_color, ImGuiStyle& style, AppSt
             
         }
 
-        ImGui::PopStyleColor(3);
+        ImGui::PopStyleColor(4);
 
         // 主窗口位置
         main_pos  = ImGui::GetWindowPos();

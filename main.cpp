@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <map>
 
 #include <SDL3/SDL.h>
 
@@ -19,6 +20,7 @@
 #include "struct_define.h"
 #include "control_tray.h"
 #include "setting_json.h"
+#include "global_hotkey.h"
 
 using json = nlohmann::json;
 
@@ -132,11 +134,28 @@ int main(int argc, char** argv)
     load_hotkey_json(hotkey_file_path, hotkey_json);
     load_hotkeymaps_from_json(hotkey_json, app_state.hotkeymap);
 
+    // 快捷键健全检测
+    if(app_state.hotkeymap.find("exit") == app_state.hotkeymap.end())
+    {
+        Hotkey exit_htk;
+        exit_htk.name = "exit";
+        app_state.hotkeymap[exit_htk.name] = exit_htk;
+    }
+    if(app_state.hotkeymap.find("call_window") == app_state.hotkeymap.end())
+    {
+        Hotkey call_window_htk;
+        call_window_htk.name = "call_window";
+        app_state.hotkeymap[call_window_htk.name] = call_window_htk;
+    }
+
     // 加载设置
     std::string settings_file_path = "settings.json";
     json setting_json;
     load_setting_json(settings_file_path, setting_json);
     load_setting_from_json(setting_json, app_state.settings);
+
+    // 初始化全局快捷键（Windows RegisterHotKey + WM_HOTKEY）
+    InitGlobalHotkeySystem(app_state);
 
     // 展示窗口
     SDL_ShowWindow(app_state.window);
@@ -191,6 +210,7 @@ int main(int argc, char** argv)
     ImGui_ImplSDL3_Shutdown();
     ImGui::DestroyContext();
 
+    CleanupGlobalHotkeySystem();
     DestroySystemTray(app_state);
     SDL_DestroySurface(app_state.icon_surface);
     SDL_DestroyRenderer(renderer);
@@ -199,4 +219,3 @@ int main(int argc, char** argv)
 
     return 0;
 }
-

@@ -11,6 +11,7 @@ struct Hotkey
     bool ctrl = false;
     bool shift = false;
     bool alt = false;
+    bool is_use = false;
     std::string name = "default"; // 快捷键名称
 };
 

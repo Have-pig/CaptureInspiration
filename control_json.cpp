@@ -13,7 +13,8 @@ namespace fs = std::filesystem;
 // 将Hotkey结构体转换为json对象, 序列化函数
 void to_json(json& j, const Hotkey& hk)
 {
-    j = {{"key",hk.key},{"ctrl",hk.ctrl},{"shift",hk.shift},{"alt",hk.alt},{"name",hk.name}};
+    j = {{"key", hk.key}, {"ctrl", hk.ctrl}, {"shift", hk.shift},
+        {"alt", hk.alt}, {"name", hk.name}, {"is_use", hk.is_use}};
 }
 
 // 将json对象转换为Hotkey结构体, 反序列化函数
@@ -24,6 +25,7 @@ void from_json(const json& j, Hotkey& hk)
     j.at("shift").get_to(hk.shift);
     j.at("alt").get_to(hk.alt);
     j.at("name").get_to(hk.name);
+    j.at("is_use").get_to(hk.is_use);
 }
 
 void load_hotkey_json(const std::string& file_path, json& j)

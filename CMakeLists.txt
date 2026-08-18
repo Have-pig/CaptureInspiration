@@ -26,6 +26,7 @@ set(SOURCES
     "set_main_gui.cpp"
     "control_taskbar.cpp"
     "inslib_gui.cpp"
+    "global_hotkey.cpp"
     
     # ImGui 核心源码
     "imgui/imgui.cpp"
@@ -79,6 +80,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     SDL3::SDL3
     Freetype::Freetype
     gdi32
+    user32
 )
 
 
