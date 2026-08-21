@@ -5,7 +5,7 @@
 #include "setting_json.h"
 #include "control_json.h"
 #include "global_hotkey.h"
-#include <string.h>
+#include "imgui/misc/cpp/imgui_stdlib.h"
 
 using json = nlohmann::json;
 
