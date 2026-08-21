@@ -35,7 +35,7 @@ void BuildSettingsUIElements(ImGuiIO& io, ImVec4& bg_color, bool& show_settings,
     static bool need_save = false;
 
     ImGui::SetNextWindowSize(ImVec2(700, 500), ImGuiCond_Once);
-    ImGui::Begin("settings", &show_settings, ImGuiWindowFlags_NoSavedSettings);
+    ImGui::Begin("Settings", &show_settings, ImGuiWindowFlags_NoSavedSettings);
     {
         ImVec4 ButtonBg_color = ImVec4(0.39f, 0.68f, 0.55f, 1.00f);
         ImVec4 ButtonHvd_color = ImVec4(0.09f, 0.54f, 0.46f, 1.00f);

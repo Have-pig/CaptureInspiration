@@ -65,6 +65,7 @@ void BuildMainUIElements(ImGuiIO& io, ImVec4& bg_color, ImGuiStyle& style, AppSt
 
     if(show_ins_lib)
     {
-
+        BuildInsLibUIElements(io, bg_color, show_ins_lib,
+                            main_pos, main_size, gap_left, gap_right, app, style);
     }
 }
